@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PipeMiddle : MonoBehaviour
 {
-
+    public AudioSource pointSource;
+    public AudioClip pointClip;
     public LogicManager logic;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class PipeMiddle : MonoBehaviour
     {
         if (collision.gameObject.layer == 3)
         {
+            pointSource.PlayOneShot(pointClip);
             logic.addScore(1);
         }
     }
