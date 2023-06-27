@@ -8,7 +8,12 @@ public class PipeSpawner : MonoBehaviour
     public float spawnRate = 2;
     private float timer = 0;
     public float heightOffset = 10;
+    BirdController bird;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        bird = GameObject.Find("Bird").GetComponent<BirdController>();
+    }
     void Start()
     {
         spawnPipe();
@@ -17,13 +22,16 @@ public class PipeSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer < spawnRate)
+        if(bird.isAlive)
         {
-            timer += Time.deltaTime;
-        } else
-        {
-            spawnPipe();
-            timer = 0;
+            if(timer < spawnRate)
+            {
+                timer += Time.deltaTime;
+            } else
+            {
+                spawnPipe();
+                timer = 0;
+            }
         }
     }
 

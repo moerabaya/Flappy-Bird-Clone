@@ -5,10 +5,12 @@ using UnityEngine;
 public class PipeControl : MonoBehaviour
 {
     public float moveSpeed = 5;
-    public float deadZone = -12; 
+    public float deadZone = -12;
+    BirdController bird;
     // Start is called before the first frame update
     void Start()
     {
+        bird = GameObject.Find("Bird").GetComponent<BirdController>();
         movePipe();
     }
 
@@ -20,10 +22,13 @@ public class PipeControl : MonoBehaviour
 
     void movePipe()
     {
-        transform.position += (Vector3.left * moveSpeed) * Time.deltaTime;
-        if(transform.position.x <= deadZone)
+        if(bird.isAlive)
         {
-            Destroy(gameObject);
+            transform.position += (Vector3.left * moveSpeed) * Time.deltaTime;
+            if(transform.position.x <= deadZone)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddad95df54cc44c4ba7d6484852c91f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScore: 2
+  playerScore: 0
   scoreText: {fileID: 611218464}
   gameOver: {fileID: 1869345374}
 --- !u!4 &220995630
@@ -1006,11 +1006,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1661854403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9723761a91dcb4eab8874c985fcba598, type: 3}
+  m_Script: {fileID: 11500000, guid: d24faa5f44c8e442bba940cbaf00dcca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 1661854406}
   flapStength: 6
+  logic: {fileID: 0}
+  isAlive: 1
 --- !u!1 &1869345374
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdMove : MonoBehaviour
+public class BirdController : MonoBehaviour
 {
     public Rigidbody2D rigidbody2D;
     public int flapStength = 6;
     public LogicManager logic;
-    public bool birdAlive = true;
+    public bool isAlive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,21 +22,21 @@ public class BirdMove : MonoBehaviour
 
     void moveBirdUp()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && birdAlive)
+        if(Input.GetKeyDown(KeyCode.Space) && isAlive)
         {
             rigidbody2D.velocity = Vector2.up * flapStength;
         }
 
-        if(transform.position.y > 5 || transform.position.y < -5)
+        if(transform.position.y > 6 || transform.position.y < -6)
         {
-            birdAlive = false;
+            isAlive = false;
             logic.showGameOver();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        birdAlive = false;
+        isAlive = false;
         logic.showGameOver();
     }
 }

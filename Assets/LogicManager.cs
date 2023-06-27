@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LogicManager : MonoBehaviour
 {
-    public int playerScore;
+    public int playerScore = 0;
     public Text scoreText;
     public GameObject gameOver;
 
