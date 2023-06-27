@@ -26,6 +26,12 @@ public class BirdMove : MonoBehaviour
         {
             rigidbody2D.velocity = Vector2.up * flapStength;
         }
+
+        if(transform.position.y > 5 || transform.position.y < -5)
+        {
+            birdAlive = false;
+            logic.showGameOver();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
