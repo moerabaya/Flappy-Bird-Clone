@@ -365,7 +365,6 @@ MonoBehaviour:
   pipe: {fileID: 3079977136290700277, guid: fe4547dd273ff47b7883c9dcea789da1, type: 3}
   spawnRate: 1.5
   heightOffset: 5
-  logic: {fileID: 220995629}
 --- !u!4 &150826353
 Transform:
   m_ObjectHideFlags: 0
@@ -1070,6 +1069,7 @@ GameObject:
   - component: {fileID: 1661854407}
   - component: {fileID: 1661854409}
   - component: {fileID: 1661854408}
+  - component: {fileID: 1661854410}
   m_Layer: 3
   m_Name: Bird
   m_TagString: Untagged
@@ -1220,6 +1220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 1661854406}
   flapStength: 6
+  animator: {fileID: 1661854410}
   logic: {fileID: 0}
   flapSource: {fileID: 1661854409}
   flapClip: {fileID: 8300000, guid: c8d87a7a93e9841f38f7f3e90eb233c2, type: 3}
@@ -1320,6 +1321,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1661854410
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661854403}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1f7f02f6c28d4e36b2ff04252d76fa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1869345374
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class BirdController : MonoBehaviour
 {
     public Rigidbody2D rigidbody2D;
     public int flapStength = 6;
+    public Animator animator;
     public LogicManager logic;
     public AudioSource flapSource;
     public AudioClip flapClip;
@@ -32,14 +33,20 @@ public class BirdController : MonoBehaviour
 
         if(transform.position.y > 6 || transform.position.y < -6)
         {
-            logic.showGameOver();
+            killBird();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(logic.isAlive)
+        killBird();
+    }
+
+    void killBird()
+    {
+        if (logic.isAlive)
         {
+            animator.enabled = false;
             flapSource.PlayOneShot(hitClip);
             logic.showGameOver();
         }

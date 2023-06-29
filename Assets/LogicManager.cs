@@ -40,6 +40,7 @@ public class LogicManager : MonoBehaviour
         isAlive = true;
         gameStarted = true;
         bird.gameObject.SetActive(true);
+        bird.animator.enabled = true;
         gameMenu.SetActive(false);
     }
 }
