@@ -6,11 +6,11 @@ public class PipeControl : MonoBehaviour
 {
     public float moveSpeed = 5;
     public float deadZone = -12;
-    BirdController bird;
+    LogicManager logic;
     // Start is called before the first frame update
     void Start()
     {
-        bird = GameObject.Find("Bird").GetComponent<BirdController>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManager>();
         movePipe();
     }
 
@@ -22,7 +22,7 @@ public class PipeControl : MonoBehaviour
 
     void movePipe()
     {
-        if(bird.isAlive)
+        if(logic.isAlive && logic.gameStarted)
         {
             transform.position += (Vector3.left * moveSpeed) * Time.deltaTime;
             if(transform.position.x <= deadZone)

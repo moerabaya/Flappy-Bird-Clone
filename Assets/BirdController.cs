@@ -7,7 +7,6 @@ public class BirdController : MonoBehaviour
     public Rigidbody2D rigidbody2D;
     public int flapStength = 6;
     public LogicManager logic;
-    public bool isAlive = true;
     public AudioSource flapSource;
     public AudioClip flapClip;
     public AudioClip hitClip;
@@ -25,7 +24,7 @@ public class BirdController : MonoBehaviour
 
     void moveBirdUp()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isAlive)
+        if(Input.GetKeyDown(KeyCode.Space) && logic.isAlive)
         {
             rigidbody2D.velocity = Vector2.up * flapStength;
             flapSource.PlayOneShot(flapClip);
@@ -33,17 +32,15 @@ public class BirdController : MonoBehaviour
 
         if(transform.position.y > 6 || transform.position.y < -6)
         {
-            isAlive = false;
             logic.showGameOver();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(isAlive)
+        if(logic.isAlive)
         {
             flapSource.PlayOneShot(hitClip);
-            isAlive = false;
             logic.showGameOver();
         }
     }

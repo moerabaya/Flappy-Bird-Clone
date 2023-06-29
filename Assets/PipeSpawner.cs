@@ -8,12 +8,13 @@ public class PipeSpawner : MonoBehaviour
     public float spawnRate = 2;
     private float timer = 0;
     public float heightOffset = 10;
-    BirdController bird;
-    // Start is called before the first frame update
+    LogicManager logic;
+
     private void Awake()
     {
-        bird = GameObject.Find("Bird").GetComponent<BirdController>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManager>();
     }
+
     void Start()
     {
         spawnPipe();
@@ -22,7 +23,7 @@ public class PipeSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(bird.isAlive)
+        if(logic.isAlive && logic.gameStarted)
         {
             if(timer < spawnRate)
             {
